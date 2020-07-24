@@ -15,33 +15,41 @@ public class Flags {
     public int solution(int A[]) {
         // write your code in Java SE 8
         List<Integer> peakIdx = new LinkedList<>();
-        for (int i = 0; i != A.length; i++) {
+        int[] nextPeakIdx = new int[A.length];
+        int nextPeak = -1;
+        for (int i = A.length - 1; i != -1; i--) {
             if (i - 1 >= 0 && A[i] > A[i - 1] && i + 1 < A.length && A[i] > A[i + 1]) {
-                peakIdx.add(i);
+                peakIdx.add(0, i);
+                nextPeak = i;
+                nextPeakIdx[i] = i;
+            } else {
+                nextPeakIdx[i] = nextPeak;
             }
         }
         if (peakIdx.size() == 0) {
             return 0;
         }
-        int max = peakIdx.size();
-        while (max != 1) {
-            int idx = 1, startPeakIdx = 0;
-            while (idx < max) {
-                int pos = findFirstGreaterFrom(peakIdx, startPeakIdx, peakIdx.size() - 1,
-                        peakIdx.get(startPeakIdx) + max);
+        int last = 1, start = 1, end = peakIdx.size();
+        while (start <= end) {
+            int mid = (start + end) / 2;
+            int cnt = 1, startPeakIdx = peakIdx.get(0);
+            while (cnt < mid) {
+                int pos = (startPeakIdx + mid >= nextPeakIdx.length ? -1 : nextPeakIdx[startPeakIdx + mid]);
                 if (pos == -1) {
                     break;
                 } else {
-                    idx++;
+                    cnt++;
                     startPeakIdx = pos;
                 }
             }
-            if (idx == max) {
-                return max;
+            if (cnt == mid) {
+                last = mid;
+                start = mid + 1;
+            } else {
+                end = mid - 1;
             }
-            max--;
         }
-        return max;
+        return last;
     }
 
     // start:inclusive, end:exclusive
@@ -58,9 +66,5 @@ public class Flags {
         } else {
             return findFirstGreaterFrom(peakIdx, mid + 1, end, base);
         }
-    }
-
-    public static void main(String args[]) {
-        new Flags().solution(new int[] {1, 5, 3, 4, 3, 4, 1, 2, 3, 4, 6, 2});
     }
 }
