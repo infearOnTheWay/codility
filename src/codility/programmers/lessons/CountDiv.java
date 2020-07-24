@@ -1,6 +1,8 @@
 package codility.programmers.lessons;
 
 /**
+ * https://app.codility.com/programmers/lessons/5-prefix_sums/count_div/
+ *
  * @author Zhang Gang (zhanggang02@baidu.com)
  */
 public class CountDiv {
