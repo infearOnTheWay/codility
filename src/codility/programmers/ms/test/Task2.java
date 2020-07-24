@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2020 Baidu, Inc. All Rights Reserved.
  */
-package codility.programmers.lessons;
+package codility.programmers.ms.test;
 
 /**
  * https://app.codility.com/c/feedback/A6UWY5-BEB/

@@ -1,11 +1,13 @@
 /*
  * Copyright (C) 2020 Baidu, Inc. All Rights Reserved.
  */
-package codility.programmers.lessons;
+package codility.programmers.ms.test;
 
 import java.util.HashMap;
 
 /**
+ * https://app.codility.com/c/feedback/A6UWY5-BEB/
+ *
  * @author Zhang Gang (zhanggang02@baidu.com)
  */
 public class Task3 {
