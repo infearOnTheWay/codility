@@ -29,8 +29,4 @@ public class Task2 {
         re += cnt / 3;
         return re;
     }
-
-    public static void main(String args[]){
-        System.out.println(new Task2().solution("aaa"));
-    }
 }
