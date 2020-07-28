@@ -1,6 +1,8 @@
 package codility.programmers.lessons;
 
 /**
+ * https://app.codility.com/programmers/lessons/11-sieve_of_eratosthenes/count_semiprimes/
+ *
  * @author infearOnTheWay
  */
 public class CountSemiPrimes {
