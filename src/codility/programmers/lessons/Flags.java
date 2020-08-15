@@ -21,10 +21,8 @@ public class Flags {
             if (i - 1 >= 0 && A[i] > A[i - 1] && i + 1 < A.length && A[i] > A[i + 1]) {
                 peakIdx.add(0, i);
                 nextPeak = i;
-                nextPeakIdx[i] = i;
-            } else {
-                nextPeakIdx[i] = nextPeak;
             }
+            nextPeakIdx[i] = nextPeak;
         }
         if (peakIdx.size() == 0) {
             return 0;
@@ -50,21 +48,5 @@ public class Flags {
             }
         }
         return last;
-    }
-
-    // start:inclusive, end:exclusive
-    private int findFirstGreaterFrom(List<Integer> peakIdx, int start, int end, int base) {
-        if (start == end) {
-            if (peakIdx.get(start) >= base) {
-                return start;
-            }
-            return -1;
-        }
-        int mid = (start + end) / 2;
-        if (peakIdx.get(mid) >= base) {
-            return findFirstGreaterFrom(peakIdx, start, mid, base);
-        } else {
-            return findFirstGreaterFrom(peakIdx, mid + 1, end, base);
-        }
     }
 }

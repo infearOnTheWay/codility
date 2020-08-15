@@ -10,15 +10,10 @@ public class BinaryGap {
         // write your code in Java SE 8
         String str = Integer.toBinaryString(N);
         int max = 0, cnt = 0;
-        boolean startCount = false;
         for (char c : str.toCharArray()) {
             if (c == '1') {
-                if (startCount) {
-                    max = Math.max(max, cnt);
-                    cnt = 0;
-                } else {
-                    startCount = true;
-                }
+                max = Math.max(max, cnt);
+                cnt = 0;
             } else {
                 cnt++;
             }
